@@ -10,7 +10,7 @@ import processing.core.*;
 
 public class Square extends Canvas.Shape
 {
-    private int diameter;
+    private int size;
     private int xPosition;
     private int yPosition;
     private int fillColor;
@@ -24,10 +24,10 @@ public class Square extends Canvas.Shape
     public Square()
     {
         super();
-        diameter = 68;
-        xPosition = 230;
-        yPosition = 90;
-        fillColor = sketch.color(0,0,255);
+        size = 60;
+        xPosition = 310;
+        yPosition = 120;
+        fillColor = sketch.color(255,0,0);
     }
 
     /**
@@ -107,9 +107,9 @@ public class Square extends Canvas.Shape
     /**
      * Change the size to the new size (in pixels). Size must be >= 0.
      */
-    public void changeSize(int newDiameter)
+    public void changeSize(int newSize)
     {
-        diameter = newDiameter;
+        size = newSize;
         draw();
     }
     
@@ -130,7 +130,7 @@ public class Square extends Canvas.Shape
         
         if(isVisible) {
             sketch.fill(fillColor);
-            sketch.ellipse(xPosition, yPosition, diameter, diameter);            
+            sketch.square(xPosition, yPosition, size);            
         }
     }
     
