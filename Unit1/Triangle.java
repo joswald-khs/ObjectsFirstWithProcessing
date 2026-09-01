@@ -113,7 +113,6 @@ public class Triangle extends Canvas.Shape
     {
         height = newHeight;
         width = newWidth;
-        draw();
     }
     
     /**

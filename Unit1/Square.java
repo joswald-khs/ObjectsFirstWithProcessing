@@ -110,7 +110,6 @@ public class Square extends Canvas.Shape
     public void changeSize(int newSize)
     {
         size = newSize;
-        draw();
     }
     
     /**
