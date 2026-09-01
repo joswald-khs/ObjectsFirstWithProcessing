@@ -110,7 +110,6 @@ public class Circle extends Canvas.Shape
     public void changeSize(int newDiameter)
     {
         diameter = newDiameter;
-        draw();
     }
     
     /**

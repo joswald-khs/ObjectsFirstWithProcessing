@@ -17,10 +17,8 @@ public class Canvas extends PApplet {
     private List<Shape> shapes;    
 
     public static void main(String[] args){
-    	String[] processingArgs = {"Canvas"};
-    	Canvas c = Canvas.getCanvas();
-
-    	PApplet.runSketch(processingArgs, c);
+        String[] processingArgs = {"Canvas"};
+        PApplet.runSketch(processingArgs, Canvas.getCanvas());
     }    
     
     public static Canvas getCanvas() {
@@ -32,8 +30,8 @@ public class Canvas extends PApplet {
     
     public Canvas() {
         super();
-    	COLORS = new int[]{color(255,0,0),color(255,255,0),color(0,0,255),color(0,255,0),color(255,0,255),color(0,0,0)};
-    	COLOR_NAMES = new String[]{"red", "yellow", "blue", "green","magenta","black"};        
+        COLORS = new int[]{color(255,0,0),color(255,255,0),color(0,0,255),color(0,255,0),color(255,0,255),color(0,0,0)};
+        COLOR_NAMES = new String[]{"red", "yellow", "blue", "green","magenta","black"};        
         shapes = new ArrayList<Shape>();     
     }
     
