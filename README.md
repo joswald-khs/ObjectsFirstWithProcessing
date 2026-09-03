@@ -1,6 +1,6 @@
 # ObjectsFirstWithProcessing
 
-This project was inspired by a couple sources and my frustration with the current offerings. [TODO: Add more detail]
+This project was inspired by my love of [Processing](https://processing.org/), [BlueJ](https://bluej.org/), and the [_ObjectsFirst_](https://www.bluej.org/objects-first/) textbook, but frustrated by what I found in terms of marrying all three.
 
 Good starting point:
 https://happycoding.io/tutorials/java/processing-in-java
