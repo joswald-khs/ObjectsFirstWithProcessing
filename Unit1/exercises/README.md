@@ -12,5 +12,6 @@ The [Shapes](https://processing.org/reference/#shape) section of the Processing 
 3. growing or shrinking a shape
 4. changing a shape's color
 5. working with multiple shapes
-6. breaking things
-7. working in `Canvas`
+6. removing a shape
+7. breaking things
+8. working in `Canvas`
