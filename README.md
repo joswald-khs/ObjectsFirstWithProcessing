@@ -1,6 +1,6 @@
 # ObjectsFirstWithProcessing
 
-This project was inspired by a couple sources and my frustration with the current offerings. [TODO: Add more]
+This project was inspired by a couple sources and my frustration with the current offerings. [TODO: Add more detail]
 
 Good starting point:
 https://happycoding.io/tutorials/java/processing-in-java
