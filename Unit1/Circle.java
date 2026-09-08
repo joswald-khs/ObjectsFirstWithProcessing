@@ -8,15 +8,9 @@ import processing.core.*;
  * @version 7.P.0
  */
 
-public class Circle extends Canvas.Shape
+public class Circle extends Shape
 {
     private int diameter;
-    private int xPosition;
-    private int yPosition;
-    private int fillColor;
-    private boolean isVisible;
-    private int xMovement = 0;
-    private int yMovement = 0;
     
     /**
      * Create a new circle at default position with default color.
@@ -33,93 +27,16 @@ public class Circle extends Canvas.Shape
     /**
      * Make this circle visible. If it was already visible, do nothing.
      */
-    public void makeVisible() { isVisible = true; }
+    
     
     /**
      * Make this circle invisible. If it was already invisible, do nothing.
      */
-    public void makeInvisible() { isVisible = false; }
     
-    /**
-     * Move the circle a few pixels to the right.
-     */
-    public void moveRight()
-    {
-        moveHorizontal(20);
-    }
-
-    /**
-     * Move the circle a few pixels to the left.
-     */
-    public void moveLeft()
-    {
-        moveHorizontal(-20);
-    }
-
-    /**
-     * Move the circle a few pixels up.
-     */
-    public void moveUp()
-    {
-        moveVertical(-20);
-    }
-
-    /**
-     * Move the circle a few pixels down.
-     */
-    public void moveDown()
-    {
-        moveVertical(20);
-    }
-
-    /**
-     * Move the circle horizontally by 'distance' pixels.
-     */
-    public void moveHorizontal(int distance)
-    {
-        xPosition += distance;
-    }
-
-    /**
-     * Move the circle vertically by 'distance' pixels.
-     */
-    public void moveVertical(int distance)
-    {
-        yPosition += distance;
-    }
-
-    /**
-     * Slowly move the circle horizontally by 'distance' pixels.
-     */
-    public void slowMoveHorizontal(int distance)
-    {
-        xMovement = distance;
-    }
-
-    /**
-     * Slowly move the circle vertically by 'distance' pixels.
-     */
-    public void slowMoveVertical(int distance)
-    {
-        yMovement = distance;
-    }
-
-    /**
-     * Change the size to the new size (in pixels). Size must be >= 0.
-     */
-    public void changeSize(int newDiameter)
-    {
-        diameter = newDiameter;
-    }
-    
-    /**
-     * Change the color. Valid colors are "red", "yellow", "blue", "green",
-     * "magenta" and "black".
-     */    
-    public void changeColor(String newColor) {
-        fillColor = getColor(newColor);
-    }
-
+        public void changeSize(int newDiameter)
+        {
+            diameter = newDiameter;
+        }
     /**
      * Draw the circle with current specifications on screen.
      */
@@ -133,31 +50,16 @@ public class Circle extends Canvas.Shape
         }
     }
     
-    private void move() {
-        if( xMovement > 0 ) {
-            xPosition++;
-            xMovement--;
-        }
-        if( xMovement < 0 ) {
-            xPosition--;
-            xMovement++;
+    // public void move() { // add bouncing
+        // super.move();        
+        // bounceOffEdges();
+    // }
+    
+    public void bounceOffEdges() {
+        if( xPosition + diameter/2 >= sketch.width || xPosition - diameter/2 <= 0 ) {
+            slowMoveHorizontal(-xMovement);
         }        
-
-        if( yMovement > 0 ) {
-            yPosition++;
-            yMovement--;
-        }
-        if( yMovement < 0 ) {
-            yPosition--;
-            yMovement++;
-        }            
     }
-
-    /**
-     * Erase the circle on screen.
-     */
-    private void erase()
-    {
-        sketch.erase(this);
-    }
+    
+   
 }

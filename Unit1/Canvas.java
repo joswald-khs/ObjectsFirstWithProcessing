@@ -40,7 +40,13 @@ public class Canvas extends PApplet {
     }
     
     public void setup() {
+        Circle c = new Circle();        
+        Square s = new Square();        
+        Triangle t = new Triangle();
         
+        c.slowMoveHorizontal(3000);
+        s.slowMoveHorizontal(1000);
+        t.slowMoveVertical(1000);
     }
     
     public void addShape(Shape newShape) {
@@ -67,7 +73,7 @@ public class Canvas extends PApplet {
     public static abstract class Shape {
         private static int NEXT_ID = 0;
         protected final Canvas sketch;
-        protected final int id;
+        protected final int id;      
         
         public Shape() {
             sketch = Canvas.getCanvas();
@@ -100,5 +106,5 @@ public class Canvas extends PApplet {
             Shape s = (Shape) o;
             return id == s.id;
         }
-    }    
+    }
 }
