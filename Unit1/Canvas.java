@@ -40,13 +40,15 @@ public class Canvas extends PApplet {
     }
     
     public void setup() {
-        Circle c = new Circle();        
-        Square s = new Square();        
-        Triangle t = new Triangle();
+        Polygon p = new Polygon(8,70);
+        p.rotate(1);
+        // Circle c = new Circle();        
+        // Square s = new Square();        
+        // Triangle t = new Triangle();
         
-        c.slowMoveHorizontal(3000);
-        s.slowMoveHorizontal(1000);
-        t.slowMoveVertical(1000);
+        // c.slowMoveHorizontal(3000);
+        // s.slowMoveHorizontal(1000);
+        // t.slowMoveVertical(1000);
     }
     
     public void addShape(Shape newShape) {
