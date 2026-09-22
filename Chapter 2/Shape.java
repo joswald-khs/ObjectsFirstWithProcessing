@@ -1,45 +1,23 @@
-import processing.core.*;
 
 /**
- * A circle that can be manipulated and that draws itself on a canvas.
- * 
- * @author  Michael Kölling and David J. Barnes (original)
- * @author  Jason Oswald (adapted to PApplet)
- * @version 7.P.0
+ * Write a description of class Shape here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
  */
-
-public class Circle extends Canvas.Shape
-{
-    private int diameter;
-    private int xPosition;
-    private int yPosition;
-    private int fillColor;
-    private boolean isVisible;
-    private int xMovement = 0;
-    private int yMovement = 0;
+public abstract class Shape extends Canvas.Shape {
+    protected int xPosition;
+    protected int yPosition;
+    protected int fillColor;
+    protected boolean isVisible = true;
+    protected int xMovement = 0;
+    protected int yMovement = 0;  
     
-    /**
-     * Create a new circle at default position with default color.
-     */
-    public Circle()
-    {
-        super();
-        diameter = 68;
-        xPosition = 230;
-        yPosition = 90;
-        fillColor = sketch.color(0,0,255);
-    }
-
-    /**
-     * Make this circle visible. If it was already visible, do nothing.
-     */
     public void makeVisible() { isVisible = true; }
-    
-    /**
-     * Make this circle invisible. If it was already invisible, do nothing.
-     */
     public void makeInvisible() { isVisible = false; }
     
+
+
     /**
      * Move the circle a few pixels to the right.
      */
@@ -107,33 +85,17 @@ public class Circle extends Canvas.Shape
     /**
      * Change the size to the new size (in pixels). Size must be >= 0.
      */
-    public void changeSize(int newDiameter)
-    {
-        diameter = newDiameter;
-    }
+
     
     /**
      * Change the color. Valid colors are "red", "yellow", "blue", "green",
      * "magenta" and "black".
      */    
     public void changeColor(String newColor) {
-        fillColor = getColor(newColor);
-    }
-
-    /**
-     * Draw the circle with current specifications on screen.
-     */
-    public void draw()
-    {
-        move();
-        
-        if(isVisible) {
-            sketch.fill(fillColor);
-            sketch.ellipse(xPosition, yPosition, diameter, diameter);            
-        }
-    }
+        fillColor = getColor(newColor);        
+    } 
     
-    private void move() {
+    public void move() {
         if( xMovement > 0 ) {
             xPosition++;
             xMovement--;
@@ -150,14 +112,20 @@ public class Circle extends Canvas.Shape
         if( yMovement < 0 ) {
             yPosition--;
             yMovement++;
-        }            
+        } 
+        
+        bounceOffEdges();
+    } 
+    
+    public void bounceOffEdges() {
+        
     }
 
     /**
      * Erase the circle on screen.
      */
-    private void erase()
+    protected void erase()
     {
         sketch.erase(this);
-    }
+    }           
 }
