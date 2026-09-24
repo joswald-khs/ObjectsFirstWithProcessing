@@ -31,7 +31,7 @@ public class Canvas extends PApplet {
     }
     
     public void settings() {
-        size(500,300);
+        size(1000,800);
     }
     
     public void setup() {
@@ -39,7 +39,25 @@ public class Canvas extends PApplet {
     }
     
     public void draw() {
-        background(128);
+        background(128);        
+        p.draw();        
+    }
+    
+    public void keyPressed() {
+        if( keyCode == RIGHT ) {
+            p.moveHorizontal(3);
+        }
+        if( keyCode == LEFT ) {
+            p.moveHorizontal(-3);
+        } 
+        
+        if( key == '+' ) {
+            p.changeNumberOfSides( p.getNumberOfSides() + 1 );
+        }
+        
+        if( key == '-' ) {
+            p.changeNumberOfSides( p.getNumberOfSides() - 1 );
+        }        
     }
 
     public static abstract class Shape {

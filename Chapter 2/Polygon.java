@@ -19,6 +19,8 @@ public class Polygon extends Shape {
         rotation = 0;
     }
     
+    public int getNumberOfSides() { return numberOfSides; }
+    
     public void changeSize(int newSize) {
         size = newSize;
     }
