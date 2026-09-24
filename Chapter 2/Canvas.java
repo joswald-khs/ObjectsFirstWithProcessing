@@ -11,10 +11,7 @@ import java.util.ArrayList;
  * @version (a version number or a date)
  */
 public class Canvas extends PApplet {
-    private static Canvas canvasSingleton;
-    private final int[] COLORS;
-    private final String[] COLOR_NAMES;
-    private List<Shape> shapes;    
+    private static Canvas canvasSingleton; 
     Polygon p;
 
     public static void main(String[] args){
@@ -31,9 +28,6 @@ public class Canvas extends PApplet {
     
     public Canvas() {
         super();
-        COLORS = new int[]{color(255,0,0),color(255,255,0),color(0,0,255),color(0,255,0),color(255,0,255),color(0,0,0)};
-        COLOR_NAMES = new String[]{"red", "yellow", "blue", "green","magenta","black"};        
-        shapes = new ArrayList<Shape>();     
     }
     
     public void settings() {
@@ -44,25 +38,8 @@ public class Canvas extends PApplet {
         p = new Polygon(8,70);
     }
     
-    public void addShape(Shape newShape) {
-        shapes.add(newShape);
-    }
-    
-    public void erase(Shape shapeToDelete) {
-        for( int i = 0; i < shapes.size(); i++ ) {
-            if( shapes.get(i).id == shapeToDelete.id ) {
-                shapes.remove(i);
-                System.out.println("Removing shape: " + shapeToDelete.id);
-                return;
-            }
-        }
-    }
-    
     public void draw() {
         background(128);
-        for( Shape s : shapes ) {
-            s.draw();
-        }
     }
 
     public static abstract class Shape {
@@ -72,24 +49,9 @@ public class Canvas extends PApplet {
         
         public Shape() {
             sketch = Canvas.getCanvas();
-            sketch.addShape(this);
             id = NEXT_ID;
             NEXT_ID++;
-        }
-        
-        /**
-         * Change the color. Valid colors are "red", "yellow", "blue", "green",
-         * "magenta" and "black".
-         */
-        public int getColor(String color)
-        {
-            for( int i = 0; i < sketch.COLOR_NAMES.length; i++ ) {
-                if( sketch.COLOR_NAMES[i].equals(color) ) {
-                    return sketch.COLORS[i];
-                }
-            }
-            return sketch.COLORS[sketch.COLORS.length-1];
-        }        
+        }   
         
         public abstract void draw();
         
