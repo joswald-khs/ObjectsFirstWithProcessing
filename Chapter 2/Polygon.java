@@ -20,7 +20,7 @@ public class Polygon extends Shape {
     }
     
     public void changeSize(int newSize) {
-        this.size = newSize;
+        size = newSize;
     }
     
     public void rotate(float theta) {

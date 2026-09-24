@@ -15,6 +15,7 @@ public class Canvas extends PApplet {
     private final int[] COLORS;
     private final String[] COLOR_NAMES;
     private List<Shape> shapes;    
+    Polygon p;
 
     public static void main(String[] args){
         String[] processingArgs = {"Canvas"};
@@ -40,15 +41,7 @@ public class Canvas extends PApplet {
     }
     
     public void setup() {
-        Polygon p = new Polygon(8,70);
-        p.rotate(1);
-        // Circle c = new Circle();        
-        // Square s = new Square();        
-        // Triangle t = new Triangle();
-        
-        // c.slowMoveHorizontal(3000);
-        // s.slowMoveHorizontal(1000);
-        // t.slowMoveVertical(1000);
+        p = new Polygon(8,70);
     }
     
     public void addShape(Shape newShape) {
