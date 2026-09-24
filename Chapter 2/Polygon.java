@@ -27,6 +27,13 @@ public class Polygon extends Shape {
         rotation += theta;
     }
     
+    
+    public void changeNumberOfSides(int newNumberOfSides) {
+        if( newNumberOfSides > 2 ) {
+            numberOfSides = newNumberOfSides;
+        }
+    }
+    
     public void draw() {    
         sketch.push();
         sketch.translate(xPosition,yPosition);
