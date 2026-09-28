@@ -10,6 +10,8 @@ public class Polygon extends Shape {
     private int numberOfSides;
     private int size;
     private float rotation;
+    private boolean isSpinning = false;
+    private boolean isMoving = false;
     
     public Polygon(int numberOfSides, int size ) {
         this.size = size;
@@ -24,7 +26,15 @@ public class Polygon extends Shape {
     }
     
     public void rotate(float theta) {
-        rotation += theta;
+        rotation += theta;  // rotation = rotation + theta; 
+    }
+    
+    public void toggleSpin() {
+        isSpinning = !isSpinning;
+    }
+    
+    public void toggleAutonomousMovement() {
+        isMoving = !isMoving;
     }
     
     
@@ -34,7 +44,18 @@ public class Polygon extends Shape {
         }
     }
     
-    public void draw() {    
+    private void update() {
+        if( isSpinning ) {
+            rotate(0.1f);
+        }
+        if( isMoving ) {
+            moveVertical(sketch.random(-1.0f,1.0f));
+            moveHorizontal(sketch.random(-1.0f,1.0f));
+        }
+    }
+    
+    public void draw() {  
+        update();
         sketch.push();
         sketch.translate(xPosition,yPosition);
         sketch.rotate(rotation);

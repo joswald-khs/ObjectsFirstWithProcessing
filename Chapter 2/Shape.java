@@ -6,12 +6,12 @@
  * @version (a version number or a date)
  */
 public abstract class Shape extends Canvas.Shape {
-    protected int xPosition;
-    protected int yPosition;
+    protected float xPosition;
+    protected float yPosition;
     protected int fillColor;
     protected boolean isVisible = true;
-    protected int xMovement = 0;
-    protected int yMovement = 0;  
+    protected float xMovement = 0;
+    protected float yMovement = 0;  
     
     public void makeVisible() { isVisible = true; }
     public void makeInvisible() { isVisible = false; }
@@ -53,7 +53,7 @@ public abstract class Shape extends Canvas.Shape {
     /**
      * Move the circle horizontally by 'distance' pixels.
      */
-    public void moveHorizontal(int distance)
+    public void moveHorizontal(float distance)
     {
         xPosition += distance;
     }
@@ -61,7 +61,7 @@ public abstract class Shape extends Canvas.Shape {
     /**
      * Move the circle vertically by 'distance' pixels.
      */
-    public void moveVertical(int distance)
+    public void moveVertical(float distance)
     {
         yPosition += distance;
     }
@@ -69,7 +69,7 @@ public abstract class Shape extends Canvas.Shape {
     /**
      * Slowly move the circle horizontally by 'distance' pixels.
      */
-    public void slowMoveHorizontal(int distance)
+    public void slowMoveHorizontal(float distance)
     {
         xMovement = distance;
     }
@@ -77,7 +77,7 @@ public abstract class Shape extends Canvas.Shape {
     /**
      * Slowly move the circle vertically by 'distance' pixels.
      */
-    public void slowMoveVertical(int distance)
+    public void slowMoveVertical(float distance)
     {
         yMovement = distance;
     }
@@ -85,15 +85,6 @@ public abstract class Shape extends Canvas.Shape {
     /**
      * Change the size to the new size (in pixels). Size must be >= 0.
      */
-
-    
-    /**
-     * Change the color. Valid colors are "red", "yellow", "blue", "green",
-     * "magenta" and "black".
-     */    
-    public void changeColor(String newColor) {
-        fillColor = getColor(newColor);        
-    } 
     
     public void move() {
         if( xMovement > 0 ) {
@@ -119,13 +110,5 @@ public abstract class Shape extends Canvas.Shape {
     
     public void bounceOffEdges() {
         
-    }
-
-    /**
-     * Erase the circle on screen.
-     */
-    protected void erase()
-    {
-        sketch.erase(this);
     }           
 }

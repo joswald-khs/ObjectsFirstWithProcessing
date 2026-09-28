@@ -40,6 +40,21 @@ public class Canvas extends PApplet {
     
     public void draw() {
         background(128);
+        p.draw();
+    }
+    
+    public void keyPressed() {
+        if( keyCode == UP ) {
+            p.moveVertical(-2);
+        }
+        //... build out movement in other directions using same pattern
+        if( key == 'm' ) {
+            p.toggleAutonomousMovement();
+        }
+    }
+    
+    public void mouseClicked() {
+        p.toggleSpin();        
     }
 
     public static abstract class Shape {
