@@ -1,23 +1,23 @@
 
 /**
- * Write a description of class Shape here.
+ * The Shape Class extends Canvas.Shape to implement
+ * functionality found in Chapter 1, but pared down
+ * somewhat for cleaner development in Chapter 2.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Jason Oswald 
+ * @version 20260928
  */
 public abstract class Shape extends Canvas.Shape {
-    protected int xPosition;
-    protected int yPosition;
+    protected float xPosition;
+    protected float yPosition;
     protected int fillColor;
     protected boolean isVisible = true;
-    protected int xMovement = 0;
-    protected int yMovement = 0;  
+    protected float xMovement = 0;
+    protected float yMovement = 0;  
     
     public void makeVisible() { isVisible = true; }
     public void makeInvisible() { isVisible = false; }
     
-
-
     /**
      * Move the circle a few pixels to the right.
      */
@@ -53,7 +53,7 @@ public abstract class Shape extends Canvas.Shape {
     /**
      * Move the circle horizontally by 'distance' pixels.
      */
-    public void moveHorizontal(int distance)
+    public void moveHorizontal(double distance)
     {
         xPosition += distance;
     }
@@ -61,71 +61,8 @@ public abstract class Shape extends Canvas.Shape {
     /**
      * Move the circle vertically by 'distance' pixels.
      */
-    public void moveVertical(int distance)
+    public void moveVertical(double distance)
     {
         yPosition += distance;
-    }
-
-    /**
-     * Slowly move the circle horizontally by 'distance' pixels.
-     */
-    public void slowMoveHorizontal(int distance)
-    {
-        xMovement = distance;
-    }
-
-    /**
-     * Slowly move the circle vertically by 'distance' pixels.
-     */
-    public void slowMoveVertical(int distance)
-    {
-        yMovement = distance;
-    }
-
-    /**
-     * Change the size to the new size (in pixels). Size must be >= 0.
-     */
-
-    
-    /**
-     * Change the color. Valid colors are "red", "yellow", "blue", "green",
-     * "magenta" and "black".
-     */    
-    public void changeColor(String newColor) {
-        fillColor = getColor(newColor);        
-    } 
-    
-    public void move() {
-        if( xMovement > 0 ) {
-            xPosition++;
-            xMovement--;
-        }
-        if( xMovement < 0 ) {
-            xPosition--;
-            xMovement++;
-        }        
-
-        if( yMovement > 0 ) {
-            yPosition++;
-            yMovement--;
-        }
-        if( yMovement < 0 ) {
-            yPosition--;
-            yMovement++;
-        } 
-        
-        bounceOffEdges();
-    } 
-    
-    public void bounceOffEdges() {
-        
-    }
-
-    /**
-     * Erase the circle on screen.
-     */
-    protected void erase()
-    {
-        sketch.erase(this);
-    }           
+    }         
 }

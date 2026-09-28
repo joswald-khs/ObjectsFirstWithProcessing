@@ -5,10 +5,20 @@ import processing.opengl.*;
 import java.util.List;
 import java.util.ArrayList;
 /**
- * Write a description of class Test here.
+ * An extension of Processing's PApplet using the
+ * singleton pattern.
+ * 
+ * Write your code in Processing's settings, setup, draw,
+ * and event handler methods as usual. Classes outside of 
+ * this class need to access the singleton instance using
+ * something like:
+ * 
+ * sketch = Canvas.getCanvas();
+ * 
+ * to access Processing methods. 
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Jason Oswald
+ * @version 20260928
  */
 public class Canvas extends PApplet {
     private static Canvas canvasSingleton; 
@@ -42,6 +52,9 @@ public class Canvas extends PApplet {
         background(128);
     }
 
+    /**
+     * An example of how to use the singleton pattern and Canvas
+     */
     public static abstract class Shape {
         private static int NEXT_ID = 0;
         protected final Canvas sketch;
@@ -54,14 +67,5 @@ public class Canvas extends PApplet {
         }   
         
         public abstract void draw();
-        
-        public boolean equals(Object o) {
-            if( this == o ) { return true; }
-            
-            if( o == null || getClass() != o.getClass() ) { return false; }
-            
-            Shape s = (Shape) o;
-            return id == s.id;
-        }
     }
 }

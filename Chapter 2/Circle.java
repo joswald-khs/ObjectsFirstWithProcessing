@@ -5,7 +5,7 @@ import processing.core.*;
  * 
  * @author  Michael Kölling and David J. Barnes (original)
  * @author  Jason Oswald (adapted to PApplet)
- * @version 7.P.0
+ * @version 20260928
  */
 
 public class Circle extends Shape
@@ -23,43 +23,24 @@ public class Circle extends Shape
         yPosition = 90;
         fillColor = sketch.color(0,0,255);
     }
-
-    /**
-     * Make this circle visible. If it was already visible, do nothing.
-     */
     
+    public void changeSize(int newDiameter)
+    {
+        diameter = newDiameter;
+    }
     
-    /**
-     * Make this circle invisible. If it was already invisible, do nothing.
-     */
-    
-        public void changeSize(int newDiameter)
-        {
-            diameter = newDiameter;
-        }
     /**
      * Draw the circle with current specifications on screen.
      */
     public void draw()
-    {
-        move();
-        
+    {   
         if(isVisible) {
             sketch.fill(fillColor);
             sketch.ellipse(xPosition, yPosition, diameter, diameter);            
         }
     }
     
-    // public void move() { // add bouncing
-        // super.move();        
-        // bounceOffEdges();
-    // }
-    
-    public void bounceOffEdges() {
-        if( xPosition + diameter/2 >= sketch.width || xPosition - diameter/2 <= 0 ) {
-            slowMoveHorizontal(-xMovement);
-        }        
-    }
-    
+    private boolean isOffLeftSide() { return xPosition - diameter/2 <= 0; }
+    private boolean isOffRightSide() { return xPosition + diameter/2 >= sketch.width; }
    
 }
