@@ -35,14 +35,11 @@ public class Triangle extends Shape
         width = newWidth;
     }
     
-
     /**
      * Draw the circle with current specifications on screen.
      */
     public void draw()
-    {
-        move();
-        
+    {        
         if(isVisible) {
             sketch.fill(fillColor);
             sketch.triangle(

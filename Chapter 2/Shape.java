@@ -1,9 +1,11 @@
 
 /**
- * Write a description of class Shape here.
+ * The Shape Class extends Canvas.Shape to implement
+ * functionality found in Chapter 1, but pared down
+ * somewhat for cleaner development in Chapter 2.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Jason Oswald 
+ * @version 20260928
  */
 public abstract class Shape extends Canvas.Shape {
     protected float xPosition;
@@ -16,8 +18,6 @@ public abstract class Shape extends Canvas.Shape {
     public void makeVisible() { isVisible = true; }
     public void makeInvisible() { isVisible = false; }
     
-
-
     /**
      * Move the circle a few pixels to the right.
      */
@@ -53,7 +53,7 @@ public abstract class Shape extends Canvas.Shape {
     /**
      * Move the circle horizontally by 'distance' pixels.
      */
-    public void moveHorizontal(float distance)
+    public void moveHorizontal(double distance)
     {
         xPosition += distance;
     }
@@ -61,54 +61,8 @@ public abstract class Shape extends Canvas.Shape {
     /**
      * Move the circle vertically by 'distance' pixels.
      */
-    public void moveVertical(float distance)
+    public void moveVertical(double distance)
     {
         yPosition += distance;
-    }
-
-    /**
-     * Slowly move the circle horizontally by 'distance' pixels.
-     */
-    public void slowMoveHorizontal(float distance)
-    {
-        xMovement = distance;
-    }
-
-    /**
-     * Slowly move the circle vertically by 'distance' pixels.
-     */
-    public void slowMoveVertical(float distance)
-    {
-        yMovement = distance;
-    }
-
-    /**
-     * Change the size to the new size (in pixels). Size must be >= 0.
-     */
-    
-    public void move() {
-        if( xMovement > 0 ) {
-            xPosition++;
-            xMovement--;
-        }
-        if( xMovement < 0 ) {
-            xPosition--;
-            xMovement++;
-        }        
-
-        if( yMovement > 0 ) {
-            yPosition++;
-            yMovement--;
-        }
-        if( yMovement < 0 ) {
-            yPosition--;
-            yMovement++;
-        } 
-        
-        bounceOffEdges();
-    } 
-    
-    public void bounceOffEdges() {
-        
-    }           
+    }         
 }

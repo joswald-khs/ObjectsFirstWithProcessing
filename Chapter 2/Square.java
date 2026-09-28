@@ -37,17 +37,12 @@ public class Square extends Shape
      */
     public void draw()
     {
-        move();
-        
         if(isVisible) {
             sketch.fill(fillColor);
             sketch.square(xPosition, yPosition, size);            
         }
     }
-    
-    public void bounceOffEdges() {
-        if( xPosition + size >= sketch.width || xPosition - size <= 0 ) {
-            slowMoveHorizontal(-xMovement);
-        }        
-    }
+
+    private boolean isOffLeftSide() { return xPosition - size <= 0; }
+    private boolean isOffRightSide() { return xPosition + size >= sketch.width; }    
 }
