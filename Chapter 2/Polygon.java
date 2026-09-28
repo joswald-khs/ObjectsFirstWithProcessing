@@ -29,33 +29,7 @@ public class Polygon extends Shape {
         rotation += theta;  // rotation = rotation + theta; 
     }
     
-    public void toggleSpin() {
-        isSpinning = !isSpinning;
-    }
-    
-    public void toggleAutonomousMovement() {
-        isMoving = !isMoving;
-    }
-    
-    
-    public void changeNumberOfSides(int newNumberOfSides) {
-        if( newNumberOfSides > 2 ) {
-            numberOfSides = newNumberOfSides;
-        }
-    }
-    
-    private void update() {
-        if( isSpinning ) {
-            rotate(0.1f);
-        }
-        if( isMoving ) {
-            moveVertical(sketch.random(-1.0f,1.0f));
-            moveHorizontal(sketch.random(-1.0f,1.0f));
-        }
-    }
-    
     public void draw() {  
-        update();
         sketch.push();
         sketch.translate(xPosition,yPosition);
         sketch.rotate(rotation);
