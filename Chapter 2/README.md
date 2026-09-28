@@ -1,4 +1,4 @@
-# Unit 1
+# Chapter 2
 
 Based off of the second chapter of [_Objects First with BlueJ_](https://www.bluej.org/objects-first/) but using [Processing](https://processing.org/) as the rendering engine. 
 
