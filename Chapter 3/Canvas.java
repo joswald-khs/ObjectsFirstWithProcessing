@@ -19,8 +19,29 @@ import processing.opengl.*;
  * @version 20260928
  */
 public class Canvas extends PApplet {
+    CircularClockDisplay clock;
+    
+    public void settings() {
+        size(800,800);
+        
+    }
+    
+    public void setup() {
+        ellipseMode(RADIUS);
+        frameRate(30);
+        clock = new CircularClockDisplay(16,38,width/2,height/2,width*0.4f);
+    }
+    
+    public void draw() {
+        background(128);
+        clock.draw();
+        if( frameCount % (30 * 60) == 0 ) {
+            clock.tick();
+        }
+    }    
+    
+    // All of the following can be generally ignored
     private static Canvas canvasSingleton; 
-    Polygon p;
 
     public static void main(String[] args){
         String[] processingArgs = {"Canvas"};
@@ -36,19 +57,6 @@ public class Canvas extends PApplet {
     
     public Canvas() {
         super();
-    }
-    
-    public void settings() {
-        size(500,300);
-    }
-    
-    public void setup() {
-        p = new Polygon(8,70);
-    }
-    
-    public void draw() {
-        background(128);
-        p.draw();
     }
 
     /**
