@@ -41,17 +41,25 @@ public class Canvas extends PApplet {
     }
     
     public void settings() {
-        size(500,300);
+        size(800,600);
     }
     
     public void setup() {
+        textSize(36);
         p = new Polygon(8,70);
     }
     
-    public void draw() {
+    
+    public void draw() { // while( true ) { // infinite loop
         background(128);
         p.draw();
-    }
+        // every 100 frames, change the number of the sides        
+        if( frameCount % 100 == 0 ) {
+            p.changeNumberOfSides( floor( random(3,13) ) );
+        }
+        text( p.toString(), 40, 40);
+    } // }
+    
     
     public void keyPressed() {
         if( keyCode == UP ) {
@@ -64,7 +72,7 @@ public class Canvas extends PApplet {
     }
     
     public void mouseClicked() {
-        p.toggleSpin();        
+        p.changeNumberOfSides( p.getNumberOfSides() - 1 );        
     }
 
     /**

@@ -37,6 +37,15 @@ public class Polygon extends Shape {
         isMoving = !isMoving;
     }
     
+    public void decrementNumberOfSides() {
+        if( numberOfSides > 3 ) {
+            numberOfSides--;
+        }     
+    }
+    
+    public int getNumberOfSides() {
+        return numberOfSides;
+    }
     
     public void changeNumberOfSides(int newNumberOfSides) {
         if( newNumberOfSides > 2 ) {
@@ -72,5 +81,16 @@ public class Polygon extends Shape {
         }
         sketch.endShape(sketch.CLOSE); 
         sketch.pop();
+    }
+    
+    public String toString() {
+        // "1" + "2" = "12" (concatenation)
+        String evenOrOdd;
+        if( numberOfSides % 2 == 0 ) {
+            evenOrOdd = "even";
+        } else {
+            evenOrOdd = "odd";
+        }
+        return "A polygon with " + numberOfSides + " sides, which is an " + evenOrOdd + " number";
     }
 }
