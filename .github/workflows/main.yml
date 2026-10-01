@@ -2,7 +2,8 @@ name: compress-bluej-project-folders
 run-name: Compressing BlueJ Project Folders for download
 on:
   push:
-    paths-ignore: zips/
+    paths-ignore: 
+    - 'zips/'
 jobs: 
   compress-files: 
     runs-on: ubuntu-slim
