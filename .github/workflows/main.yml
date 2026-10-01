@@ -1,0 +1,9 @@
+name: compress-bluej-project-folders
+run-name: Compressing BlueJ Project Folders for download
+on: [push]
+jobs: 
+  compress-files: 
+    runs-on: ubuntu-slim
+    steps:
+      - uses: actions/checkout@v6
+      - run: for i in */; do zip -r "${i%/}.zip" "$i" && mv "${i%/}.zip" zips/; done
