@@ -1,6 +1,8 @@
 
 /**
- * 
+ * A Processing-based visual output for the Clock
+ * class. What is displayed is a traditional round
+ * clock with a minute hand and an hour hand. 
  *
  * @author Jason Oswald
  * @version 20260929

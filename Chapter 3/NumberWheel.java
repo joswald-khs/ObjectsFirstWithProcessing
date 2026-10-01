@@ -10,6 +10,7 @@
  * @author Jason Oswald
  * @version 20260929
  */
+
 public class NumberWheel {
     private int limit;
     private int value;
