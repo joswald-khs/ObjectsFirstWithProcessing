@@ -7,5 +7,5 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - run: for i in */; do zip -r "${i%/}.zip" "$i" && mv "${i%/}.zip" zips/; done
-      - run: for i in zips/*; do git add "${i%/}.zip; done
+      - run: for i in zips/*; do git add "${i%/}.zip"; done
       - run: git commit -m "updating zip files"
