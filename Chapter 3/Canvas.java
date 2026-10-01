@@ -29,7 +29,7 @@ public class Canvas extends PApplet {
     public void setup() {
         ellipseMode(RADIUS);
         frameRate(30);
-        clock = new CircularClockDisplay(16,38,width/2,height/2,width*0.4f);
+        clock = new CircularClockDisplay(width/2,height/2,width*0.4f);
     }
     
     public void draw() {
@@ -65,12 +65,9 @@ public class Canvas extends PApplet {
     public static abstract class Shape {
         private static int NEXT_ID = 0;
         protected final Canvas sketch;
-        protected final int id;      
         
         public Shape() {
             sketch = Canvas.getCanvas();
-            id = NEXT_ID;
-            NEXT_ID++;
         }   
         
         public abstract void draw();

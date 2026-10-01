@@ -18,11 +18,27 @@ public class CircularClockDisplay extends Canvas.Shape {
     private double hourTickR;
     private final double offset = -sketch.HALF_PI;
     
-    public CircularClockDisplay( float x, float y, float r ) {        
-        this(0,0,x,y,r);
+    // create a display at a position with a given size with a time of 
+    // whatever the current time is according to Processing. 
+    public CircularClockDisplay( float x, float y, float r ) { 
+        super();
+        clock = new Clock(sketch.hour(),sketch.minute());
+        this.x = x;
+        this.y = y;
+        this.r = r;
+        
+        dh = sketch.TWO_PI / 12;
+        dm = sketch.TWO_PI / 60;
+        minuteHandR = this.r * 0.7;
+        hourHandR = this.r * 0.45;
+        minuteTickR = this.r * 0.9;
+        hourTickR = this.r * 0.8;
+        // System.out.println( clock.getHour() );        
     }
     
+    // create a display 
     public CircularClockDisplay( int h, int m, float x, float y, float r ) {
+        super();
         clock = new Clock(h,m);
         this.x = x;
         this.y = y;
@@ -34,6 +50,7 @@ public class CircularClockDisplay extends Canvas.Shape {
         hourHandR = this.r * 0.45;
         minuteTickR = this.r * 0.9;
         hourTickR = this.r * 0.8;
+        // System.out.println( clock.getHour() );
     }
     
     public void draw() {
@@ -52,10 +69,6 @@ public class CircularClockDisplay extends Canvas.Shape {
         sketch.line(x,y, 
             (float) (x + hourHandR * Math.cos(clock.getHour() * dh + offset)),
             (float) (y + hourHandR * Math.sin(clock.getHour() * dh + offset)));        
-        
-        // hour ticks (12, longer)
-        // minute ticks (60, shorter)
-        
     }
     
     public void tick() {
