@@ -6,6 +6,8 @@ jobs:
     runs-on: ubuntu-slim
     steps:
       - uses: actions/checkout@v6
+      - run: git config --global user.email "joswald@kentshill.org"
+      - run: git config --global user.name "Jason Oswald"
       - run: for i in */; do zip -r "${i%/}.zip" "$i" && mv "${i%/}.zip" zips/; done
       - run: cd zips
       - run: git add .
