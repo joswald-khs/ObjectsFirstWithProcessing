@@ -1,14 +1,19 @@
 name: compress-bluej-project-folders
 run-name: Compressing BlueJ Project Folders for download
-on: [push]
+on:
+  push:
+    paths-ignore: zips/
 jobs: 
   compress-files: 
     runs-on: ubuntu-slim
     steps:
       - uses: actions/checkout@v6
-      - run: git config --global user.email "joswald@kentshill.org"
-      - run: git config --global user.name "Jason Oswald"
+      - run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
       - run: for i in */; do zip -r "${i%/}.zip" "$i" && mv "${i%/}.zip" zips/; done
       - run: cd zips
       - run: git add .
-      - run: git commit -m "updating zip files"
+      - run: git commit -m "chore: updating zip files"
+      - run: git push
