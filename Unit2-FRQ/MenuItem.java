@@ -15,18 +15,19 @@ public class MenuItem {
     
     /** Constructs a MenuItem object with a name and a price */
     public MenuItem(String name, double price) {
-        // implementation not shown
+        this.name = name;
+        this.price = price;
     }
     
     /** Returns the name of the menu item */
     public String getName() { 
         // implementation not shown
-        return ""; // to compile
+        return this.name; // to compile
     }
     
     public double getPrice() {
         // implementation not shown
-        return 0.0;
+        return this.price;
     }
     
     // There may be instance variables, constructors, and methods not shown
