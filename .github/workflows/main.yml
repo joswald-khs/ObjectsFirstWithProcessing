@@ -17,5 +17,6 @@ jobs:
       - run: for i in */; do zip -r "${i%/}.zip" "$i" && mv "${i%/}.zip" zips/; done
       - run: cd zips
       - run: git add .
+      - run: git pull
       - run: git commit -m "[CHORE] updating zip files"
       - run: git push origin main
