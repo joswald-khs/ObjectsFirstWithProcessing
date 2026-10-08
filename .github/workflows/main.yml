@@ -14,9 +14,9 @@ jobs:
       - run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+      - run: git pull
       - run: for i in */; do zip -r "${i%/}.zip" "$i" && mv "${i%/}.zip" zips/; done
       - run: cd zips
-      - run: git add .
-      - run: git pull
+      - run: git add .      
       - run: git commit -m "[CHORE] updating zip files"
       - run: git push origin main
