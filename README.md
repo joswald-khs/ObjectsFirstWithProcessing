@@ -1,9 +1,10 @@
 # ObjectsFirstWithProcessing
 
-This project was inspired by my love of [Processing](https://processing.org/), [BlueJ](https://bluej.org/), and the [_ObjectsFirst_](https://www.bluej.org/objects-first/) textbook, but frustrated by what I found in terms of marrying all three.
+This project was inspired by my love of [Processing](https://processing.org/), [BlueJ](https://bluej.org/), and the [_Objects First_](https://www.bluej.org/objects-first/) textbook, but frustrated by what I found in terms of marrying all three. This is kind of where I started: https://happycoding.io/tutorials/java/processing-in-java. Since this is also an AP class, all of this is blended with with Code.org's curriculum as well. 
 
-Good starting point:
-https://happycoding.io/tutorials/java/processing-in-java
+## Repository Structure
+
+This repository primarily has two kinds of folders: those labeled as **Chapter**s and those labeled as **Unit**s. Chapter folders are related to _Objects First_ textbook and feature code adapted from that resource. Unit folders contain code related to Code.org's curriculum. If a Unit folder is labeled with **FRQ** or **MCQ** then it is related to the end of chapter assessments, otherwise it is code that covers Code.org's content, but probably more in a Processing form. 
 
 ## Making it Work
 
