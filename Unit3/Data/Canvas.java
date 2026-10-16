@@ -19,8 +19,7 @@ import processing.opengl.*;
  * @version 20261008
  */
 public class Canvas extends PApplet {
-    // Bouncer b1, b2, b3;
-    Bouncer[] bouncers;
+    Student[] students;
     
     public void settings() {
         size(800,800);
@@ -28,36 +27,24 @@ public class Canvas extends PApplet {
     }
     
     public void setup() {
-        ellipseMode(RADIUS);
-        bouncers = new Bouncer[30];
-        for( int i = 0; i < bouncers.length; i++ ) {
-            bouncers[i] = new Bouncer();
+        try {
+            students = Student.createStudentArrayFromFiles("student_data.txt","gpa_data.txt");
         }
-        // bouncers[0] = new Bouncer();
-        // bouncers[1] = new Bouncer();
-        // bouncers[2] = new Bouncer();
-        // bouncers = new Bouncer[] {new Bouncer(),new Bouncer(),new Bouncer()};
+        catch (java.io.IOException ioe) {
+            ioe.printStackTrace();
+        }
+        noLoop();
     }
     
     public void draw() {
         background(128);
-        for( int i = 0; i < bouncers.length; i++ ) {
-            bouncers[i].draw();
-        }   
-        for( int i = 0; i < bouncers.length - 1; i++ ) {
-            Bouncer a = bouncers[i];
-            // triangle loop
-            for( int j = i + 1; j < bouncers.length; j++ ) {
-                Bouncer b = bouncers[j];
-                if( a.hittingOtherBouncer(b) ) {
-                    a.bounceOff(b);
-                }
-            }
+        float w = width/students.length;
+        for( int i = 0; i < students.length; i++ ) {
+            float y = map((float) students[i].getGPA(),0,4,height,0);
+            String name = students[i].getName();
+            circle( w/2 + w * i,y, name.length() );
+            // text( students[i].getName(), w/2 + w * i,y);
         }
-        // bouncers[0].draw();
-        // bouncers[1].draw();
-        // bouncers[2].draw();
-
     }    
     
     // All of the following can be generally ignored

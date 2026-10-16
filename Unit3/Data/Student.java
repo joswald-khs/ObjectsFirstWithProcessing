@@ -31,10 +31,36 @@ public class Student {
 
     /* ---- 🔎 ADD YOUR CODE BELOW THIS LINE ---- */
 
+    public static Student[] createStudentArrayFromFiles(String nameFile, String gpaFile) throws IOException {
+        File names = new File(nameFile);
+        File gpas = new File(gpaFile);
+        Scanner nameScanner = new Scanner(names);
+        Scanner gpaScanner = new Scanner(gpas);
+        
+        // count number of students
+        int studentCount = 0;
+        while(nameScanner.hasNext()){
+            studentCount++;
+            nameScanner.nextLine();
+        }
+        nameScanner.close();
+        nameScanner = new Scanner(names);
+        
+        Student[] students = new Student[studentCount];
+        
+        for( int i = 0; i < studentCount; i++ ) {
+            String name = nameScanner.nextLine();
+            double gpa = gpaScanner.nextDouble(); 
+            students[i] = new Student(name,gpa);
+        }
+
+        return students;
+    }
 
 
-
-  
+    public double getGPA() {
+        return gpa;
+    }
   
     public String getName() {
         return name;
